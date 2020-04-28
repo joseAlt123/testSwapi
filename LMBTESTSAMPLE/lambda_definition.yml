@@ -1,0 +1,37 @@
+registrarLog:
+    handler: LMBTESTSAMPLE/src/controllers/TestController.testSample
+    name: "LMBTESTSAMPLE_001"
+    description: CONEXION TEST
+
+    package:
+      include:
+      - LMBTESTSAMPLE/src/**   
+    environment:
+      URL_SWAPI: "https://swapi.py4e.com/api/vehicles/4/"
+
+    events:
+      - http:
+          path: sample/testSample
+          method: post
+          produces:
+            - "application/json"
+          responses:
+            200:
+              description: "200 response"
+              schema:
+                $ref: "#/definitions/Empty"
+              headers:
+                Access-Control-Allow-Origin:
+                  type: "string" 
+          cors: 
+            origin: '*'
+            headers:
+              - Content-Type
+              - X-Amz-Date
+              - Authorization
+              - X-Api-Key
+              - X-Amz-Security-Token
+              - X-Amz-User-Agent
+              - Access-Control-Allow-Origin
+              - Access-Control-Allow-Credentials
+              - User

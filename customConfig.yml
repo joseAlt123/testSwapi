@@ -1,0 +1,17 @@
+serverless-offline:
+    port: 4000
+stage: ${opt:stage, self:provider.stage}
+
+nom_project: TEST
+nom_lambda: UE1COMDESALMBSAMPLE
+
+env:
+    desa: DESA
+    test: TEST
+    prod: PROD
+
+region: 
+    desa: us-east-2 
+    test: us-east-2
+    prod: us-east-1
+

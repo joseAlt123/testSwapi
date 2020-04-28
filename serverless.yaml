@@ -1,0 +1,23 @@
+service: TEST-SAMPLE
+
+custom: ${file(customConfig.yml)} 
+
+provider:
+  name: aws
+  runtime: nodejs10.x
+  timeout: 30
+  memorySize: 512
+
+package:
+  individually: true
+  exclude:
+    - node_modules/**
+    - LMBTESTSAMPLE/**
+    - ./**.json
+    - ./**.yml
+    - npm-cache/**
+    - ./**.sh
+    - Jenkinsfile
+
+functions:
+  - ${file(LMBTESTSAMPLE/lambda_definition.yml)} #LMBTESTSAMPLE
